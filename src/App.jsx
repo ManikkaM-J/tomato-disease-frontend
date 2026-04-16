@@ -423,7 +423,7 @@ const DetectDisease = () => {
     setLoading(true); setError(null);
     try {
       const fd = new FormData(); fd.append("file", image);
-      const res = await fetch("http://127.0.0.1:5000/predict", { method: "POST", body: fd });
+      const res = await fetch("https://tomato-disease-backend-jurt.onrender.com", { method: "POST", body: fd });
       const data = await res.json();
 
       if (!data.is_tomato_leaf) { setError(`${data.message}\n\n${data.suggestion}`); setLoading(false); return; }
